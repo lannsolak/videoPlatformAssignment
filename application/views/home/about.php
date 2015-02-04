@@ -1,7 +1,8 @@
+
+
 <?php 
 $this->load->view('inc/header');
-
-$this->load->view('home/home');
-                            
+echo '<h1>Hello about</h1>';
 $this->load->view('inc/footer');
 ?>
+

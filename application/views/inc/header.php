@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Welcome to Homepage</title>
+	<title>CORV - <?php echo ucfirst($this->uri->segment(1)); ?></title>
 
 	  <?php
         echo link_tag("assets/css/bootstrap.css");
@@ -25,19 +25,19 @@
 <body>
 	<!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <!-- Brand and toggle get grouped for better mobile display -->
         <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="v-top-menu">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Start Bootstrap</a>
+                <a class="navbar-brand" href="#">Contest Online Video Platform <?php // echo img("assets/img/covp-logo.png"); ?></a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="v-top-menu">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li>
                         <a href="#">About</a>
@@ -50,7 +50,15 @@
                     </li>
                 </ul>
             </div>
-        <!-- /.navbar-collapse -->
+            <!-- /.navbar-collapse -->
+            <!-- <div class="input-group col-sm-4">
+                <input class="form-control" type="text">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">
+                        <span class="glyphicon glyphicon-search"></span>
+                </button>
+                </span>
+            </div> -->
         </div>
     </nav>
 

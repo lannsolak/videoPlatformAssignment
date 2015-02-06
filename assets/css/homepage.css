@@ -40,6 +40,7 @@ footer {
 }
 .navbar-inverse .navbar-nav > li > a, .navbar-inverse .navbar-brand {
     color: #f0f0f0;
+    font-weight: bold;
 }
 .navbar-inverse .navbar-toggle {
     border-color: #F0AD4E;

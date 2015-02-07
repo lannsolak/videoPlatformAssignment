@@ -4,11 +4,6 @@
 	<meta charset="utf-8">
 	<title>CORV - <?php echo ucfirst($this->uri->segment(1)); ?></title>
 
-	  <?php
-        echo link_tag("assets/css/bootstrap.css");
-		echo link_tag("assets/css/style.css");
-
-        ?>
         <!-- Bootstrap Core CSS -->
 	    <link href="<?php echo base_url(); ?>/assets/css/bootstrap.min.css" rel="stylesheet">
 

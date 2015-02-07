@@ -30,10 +30,55 @@ body {
     white-space: nowrap;
 }
 
-.thumbnail img {
-    width: 100%;
+footer {
+    margin: 50px 0;
 }
-
+/* Top Menu Style */
+.navbar-inverse {
+    background-color: #C38021;
+    border-color: #F0AD4E;
+}
+.navbar-inverse .navbar-nav > li > a, .navbar-inverse .navbar-brand {
+    color: #f0f0f0;
+    font-weight: bold;
+}
+.navbar-inverse .navbar-toggle {
+    border-color: #F0AD4E;
+}
+.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
+    background-color: #F0AD4E;
+}
+.navbar-inverse .navbar-collapse {
+    border-color: #9A5700;
+}
+/* Panel style */
+.panel-body {
+    padding: 15px;
+}
+.panel-title {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 16px;
+    color: inherit;
+}
+.panel-orange {
+    border-color: #C38021;
+}
+.panel-orange .panel-heading {
+    border-color: #C38021;
+    color: #FFF;
+    background-color: #C38021;
+}
+/* table */
+.table > tbody > tr > td,
+.table > tbody > tr > th,
+.table > tfoot > tr > td,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > thead > tr > th
+{
+    text-align: center;
+}
 .ratings {
     padding-right: 10px;
     padding-left: 10px;
@@ -43,12 +88,15 @@ body {
 .thumbnail {
     padding: 0;
 }
+.thumbnail img {
+    width: 100%;
+}
 
 .thumbnail .caption-full {
     padding: 9px;
     color: #333;
 }
-
-footer {
-    margin: 50px 0;
+.sponsor img {
+    width: 150px;
 }
+

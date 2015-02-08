@@ -36,7 +36,7 @@ footer {
 /* Top Menu Style */
 .navbar-inverse {
     background-color: #C38021;
-    border-color: #F0AD4E;
+    border-bottom: 5px solid #080808;
 }
 .navbar-inverse .navbar-nav > li > a, .navbar-inverse .navbar-brand {
     color: #f0f0f0;
@@ -100,3 +100,24 @@ footer {
     width: 150px;
 }
 
+/**
+* Sokeara Style
+*/
+
+#pri-menu {
+	//border: 1px solid;
+}
+
+.user-form {
+    width: 50%;
+    border: 1px solid #ccc;
+    padding: 15px 20px;
+    border-radius: 5px;
+    margin: 0 auto;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.error-sms {
+    color: red;
+    font-weight: bold;
+}

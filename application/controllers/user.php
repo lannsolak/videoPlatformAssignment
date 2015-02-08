@@ -18,6 +18,7 @@ class User extends V_Controller {
     	if(!$this->input->post()){
     		redirect("user/show_register");
     	}
+        
     	$this->load->model("user_model");
     	$add = $this->user_model->add_by_post($this->input->post());
     	if($add) redirect("user/show_register");

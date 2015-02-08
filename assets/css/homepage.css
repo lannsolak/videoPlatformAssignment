@@ -96,13 +96,6 @@ footer {
     padding: 9px;
     color: #333;
 }
-.sponsor img {
-    width: 150px;
-}
-
-/**
-* Sokeara Style
-*/
 
 #pri-menu {
 	//border: 1px solid;
@@ -120,4 +113,7 @@ footer {
 .error-sms {
     color: red;
     font-weight: bold;
+.h3 {
+    font-size: 20px;
+    color: #C38021;
 }

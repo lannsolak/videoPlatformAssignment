@@ -10,6 +10,7 @@ class Contest extends V_Controller {
         $data["newContest"] = $this->getNewContest();
         $data["scheduleContest"] = $this->getContestWithSchedule();
         $data["progressContest"] = $this->getInprogressingContest();
+        $data["winnerContest"] = $this->getWinnerContest();
         $this->load->view("index", $data);
     }
     // new contest page

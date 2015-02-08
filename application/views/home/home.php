@@ -12,7 +12,7 @@
             <div class="row">
             <!-- all video -->
                 <div class="col-sm-4 col-lg-4 col-md-4">
-                    <h3>Latest Video</h3>
+                    <h3><?php echo anchor("video/popularvideo", "Latest Video"); ?></h3>
                     <div class="row">
                         <?php 
                             foreach ($newVideos->result() as $newVideo){                             
@@ -29,12 +29,12 @@
 	                   </div>
                         <?php } ?>
 	                </div><!-- end of row -->
-                    <h4><?php echo anchor("video/play/".$newVideo->id, "View All"); ?></h4>
+                    <h4><?php echo anchor("video/newvideo", "View All"); ?></h4>
                 </div>
                 <!-- end of all videos -->
                 <!-- all popular videos -->
                 <div class="col-sm-4 col-lg-4 col-md-4">
-                    <h3>Popular videos</h3>
+                    <h3><?php echo anchor("video/popularvideo", "Popular videos"); ?></h3>
                 	<div class="row">
                         <?php 
                             foreach ($popularVideos->result() as $popularVideo){                             
@@ -51,12 +51,12 @@
     	                </div>
                         <?php } ?>        
 	                </div><!-- end of row -->
-                    <h4><?php echo anchor("video/play/".$newVideo->id, "View All"); ?></h4>
+                    <h4><?php echo anchor("video/popularvideo", "View All"); ?></h4>
                 </div>
                 <!-- end of all popular videos -->
                 <!-- videos contest -->
                 <div class="col-sm-4 col-lg-4 col-md-4">
-                    <h3>New video in Contest</h3>
+                    <h3><?php echo anchor("video/contestvideo", "New video in Contest"); ?></h3>
                 	<div class="row">
                         <?php 
                             foreach ($contestVideos->result() as $contestVideo){                             
@@ -73,7 +73,7 @@
                         </div>
                         <?php } ?>
 	                </div><!-- end of row -->
-                    <h4><?php echo anchor("video/play/".$newVideo->id, "View All"); ?></h4>
+                    <h4><?php echo anchor("video/contestvideo", "View All"); ?></h4>
                 </div>
                 <!-- end of video contest -->
             </div>

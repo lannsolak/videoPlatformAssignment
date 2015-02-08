@@ -8,7 +8,5 @@ if($uri != ""){
 }else{
     $this->load->view('home/home');
 }
-
-
 $this->load->view('inc/footer');
 ?>

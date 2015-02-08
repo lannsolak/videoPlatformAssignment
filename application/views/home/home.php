@@ -2,7 +2,6 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-            <?php var_dump($contestVideos); ?>
             <div class="jumbotron hero-spacer">
 	            <h1>COVP Video Platform</h1>
 	            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>

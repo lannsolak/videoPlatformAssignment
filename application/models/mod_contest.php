@@ -21,8 +21,9 @@ class Mod_contest extends V_Model {
 					  ->from("contests")
 					  ->join("schedules", 'contests.schedules_id = schedules.id')
 					  ->order_by("contests.id", "DESC")
-					  ->where("schedules.isActive", 1)
-					  ->where("contests.status != ", "draft")
+					  // ->where("schedules.isActive", 1)
+					  ->where("contests.status !=", "draft")
+					  ->where("contests.status !=", "close")
 					  ->get();
 		return  $query;
 	}

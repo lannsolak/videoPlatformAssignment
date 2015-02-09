@@ -130,6 +130,15 @@ footer {
     font-size: 18px;
     color: #f0f0f0;
 }
+.d-title-describe {
+    font-weight: bold;
+    font-size: 16px;
+    color: #cccccc;
+}
+.d-text-describe {
+    text-align: justify;
+    color: #6B6B6B;
+}
 .cd-info-wrapper .title{
     width: 125px;
     padding-left: 0px;

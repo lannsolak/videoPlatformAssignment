@@ -23,6 +23,21 @@ class Contest extends V_Controller {
         $data["detailsContest"] = $this->mod_contest->queryDetailsContest($id);
         $this->load->view("index", $data);
     }
+    // enroll detail page
+    // public function enrollContest($id){
+
+    //     if(is_int($id)) {
+    //         $this->session->set_userdata('contestId', $id);
+    //     }
+
+    //     $this->session->set_userdata("userId", 1);
+    //     if($this->session->userdata("userId")) {
+    //         $userId = $this->session->userdata("userId");
+    //     }
+
+    //     $data["userVideo"] = $this->mod_contest->getUserVideos($userId);
+    //     $this->load->view("index", $data);
+    // }
     // return the new contest
     public function getNewContest() {
     	$new = $this->mod_contest->queryNewContest();

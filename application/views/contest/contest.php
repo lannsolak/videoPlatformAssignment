@@ -11,6 +11,6 @@
             $this->load->view($uri.'/index');
         }
         $this->load->view($uri.'/sideright');
-        ?>        
+        ?>
     </div>
 </div>

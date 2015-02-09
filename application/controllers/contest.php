@@ -30,7 +30,7 @@ class Contest extends V_Controller {
     		return $new->result();
     	}else{
            return null;
-        } 
+        }
     }
     // return the contest with schedule
     public function getContestWithSchedule(){
@@ -39,7 +39,7 @@ class Contest extends V_Controller {
             return $contestSchedule->result();
         }else{
            return null;
-        } 
+        }
     }
     // return in progressing contest
     public function getInprogressingContest(){
@@ -48,7 +48,7 @@ class Contest extends V_Controller {
             return $progress->result();
         }else{
            return null;
-        } 
+        }
     }
     // return winner contest
     public function getWinnerContest(){
@@ -57,6 +57,6 @@ class Contest extends V_Controller {
             return $winner->result();
         }else{
            return null;
-        } 
+        }
     }
 }

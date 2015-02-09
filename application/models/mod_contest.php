@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Mod_contest extends V_Model {
-	
+
 	public function queryNewContest(){
 		$query = $this->db->select("id, title")
 					  ->from("contests")
@@ -35,6 +35,14 @@ class Mod_contest extends V_Model {
 					  ->where("enrollcontest.isWin !=", 0)
 					  ->get();
 		return  $query;
+	}
+	public function queryDetailsContest($id){
+		$query = $this->db->select("*, contests.id as cid")
+						  ->from("contests")
+						  ->join("schedules", 'contests.schedules_id = schedules.id')
+						  ->where("contests.id", $id)
+						  ->get();
+		return $query;
 	}
 
 }

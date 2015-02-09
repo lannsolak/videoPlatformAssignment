@@ -70,12 +70,12 @@ footer {
     background-color: #C38021;
 }
 /* table */
-.table > tbody > tr > td,
-.table > tbody > tr > th,
-.table > tfoot > tr > td,
-.table > tfoot > tr > th,
-.table > thead > tr > td,
-.table > thead > tr > th
+.home-contest .table > tbody > tr > td,
+.home-contest .table > tbody > tr > th,
+.home-contest .table > tfoot > tr > td,
+.home-contest .table > tfoot > tr > th,
+.home-contest .table > thead > tr > td,
+.home-contest .table > thead > tr > th
 {
     text-align: center;
 }
@@ -113,7 +113,24 @@ footer {
 .error-sms {
     color: red;
     font-weight: bold;
+}
 .h3 {
     font-size: 20px;
     color: #C38021;
+}
+.cd-info-wrapper {
+    background: #C38021;
+    color: #ffffff;
+    text-align: left;
+    padding-top: 20px;
+    border-radius: 2px;
+}
+.d-title-schedule {
+    font-weight: bold;
+    font-size: 18px;
+    color: #f0f0f0;
+}
+.cd-info-wrapper .title{
+    width: 125px;
+    padding-left: 0px;
 }

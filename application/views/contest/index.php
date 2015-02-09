@@ -8,7 +8,7 @@
 <div class="col-sm-8">
     <h3 class="h3">Contest Features</h3>
     <hr />
-    <div class="row">
+    <div class="row home-contest">
         <div class="col-sm-4">
             <div class="panel panel-orange">
                 <div class="panel-heading">
@@ -16,7 +16,7 @@
                 </div>
                 <div class="panel-body">
                     <div class="list-group">
-                        <?php 
+                        <?php
                             if($newContest != null) {
                                 foreach($newContest as $nc){
                                     $id = $nc->id;
@@ -47,7 +47,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php 
+                            <?php
                                 if($scheduleContest != null) {
                                     foreach($scheduleContest as $sc){
                             ?>
@@ -57,7 +57,7 @@
                                             <td><?php echo date ( "d M Y", strtotime($sc->enddate)); ?></td>
                                             <td><?php echo date ( "d M Y", strtotime($sc->resultdate)); ?></td>
                                             <td><?php $id = $sc->id; echo anchor("/contest/details/$id", "Detail"); ?></td>
-                                        </tr>                                
+                                        </tr>
                             <?php
                                     }
                                 }else{
@@ -85,7 +85,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php 
+                            <?php
                                 if($progressContest != null) {
                                     foreach($progressContest as $pc){
                             ?>
@@ -94,12 +94,12 @@
                                             <td><?php echo $pc->title; ?></td>
                                             <td><?php echo $pc->prize; ?></td>
                                             <td>
-                                                <?php 
-                                                    $id = $pc->id; 
-                                                    echo anchor("/contest/details/$id", "Detail"); 
+                                                <?php
+                                                    $id = $pc->id;
+                                                    echo anchor("/contest/details/$id", "Detail");
                                                 ?>
                                             </td>
-                                        </tr>                                
+                                        </tr>
                             <?php
                                     }
                                 }else{
@@ -128,7 +128,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php 
+                            <?php
                                 if($winnerContest != null) {
                                     foreach($winnerContest as $wc){
                             ?>
@@ -138,12 +138,12 @@
                                             <td><?php echo anchor("video/play/".$wc->videos_id, $wc->vtitle); ?></td>
                                             <td><?php echo $wc->prize; ?></td>
                                             <td>
-                                                <?php 
-                                                    $id = $wc->ecid; 
-                                                    echo anchor("/contest/winnerdetail/$id", "Detail"); 
+                                                <?php
+                                                    $id = $wc->ecid;
+                                                    echo anchor("/contest/winnerdetail/$id", "Detail");
                                                 ?>
                                             </td>
-                                        </tr>                                
+                                        </tr>
                             <?php
                                     }
                                 }else{
@@ -157,4 +157,4 @@
         </div>
     </div>
 </div>
-        
+

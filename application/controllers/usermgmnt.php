@@ -22,7 +22,7 @@ class Usermgmnt extends V_Controller {
     }
     // submiting the update user information
     public function updateUserInfo(){
-
+        
     }
 }
 

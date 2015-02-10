@@ -45,5 +45,22 @@ class Mod_contest extends V_Model {
 						  ->get();
 		return $query;
 	}
+	public function queryUserVideo($userId, $enrolledVideoID = array(0)){
+		$query = $this->db->select("id, title")
+						  ->from("videos")
+						  ->where("user_id", $userId);
+		$query 	= $query->where_not_in('id', $enrolledVideoID);
+		$query  = $query->get();
+		if($query->num_rows() <= 0){ $query = null; }
+		return $query;
+	}
+	public function getIsEnrolledVideoID($userId){
+		$query = $this->db->select("videos_id")
+						  ->from("enrollcontest")
+						  ->where("users_id", $userId)
+						  ->get();
+		if($query->num_rows() <= 0){ $query = null; } else { $query = $query->result(); }
+		return $query;
+	}
 
 }

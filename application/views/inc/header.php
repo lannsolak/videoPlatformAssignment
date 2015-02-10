@@ -36,29 +36,34 @@
                 <div id="pri-menu" class="col-sm-6">
 				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					    <ul class="nav navbar-nav">
-					    	<li class="active">
+                            <?php $uri = $this->uri->segment(1); ?>
+					    	<li class="<?php if($uri == ""){ echo "active"; } ?>">
 								<a href="<?php echo base_url(); ?>"><span class="glyphicon glyphicon-home"></span> </a>
 							</li>
-					        <li>
-								<a href="<?php echo base_url(); ?>">About Us</a>
+					        <li class="<?php if($uri == "about"){ echo "active"; } ?>">
+                                <?php echo anchor("about", "About Us"); ?>
 							</li>
-							<li class="dropdown">
-								<?php echo anchor("contest",'Contests <span class="caret"></span>', 'class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"'); ?>
-								<ul class="dropdown-menu" role="menu">
-						            <li><a href="#">Action</a></li>
-						            <li><a href="#">Another action</a></li>
-						            <li><a href="#">Something else here</a></li>
-						            <li class="divider"></li>
-						            <li><a href="#">Separated link</a></li>
-						            <li class="divider"></li>
-						            <li><a href="#">One more separated link</a></li>
-					          	</ul>
+							<li class="<?php if($uri == "contest"){ echo "active"; } ?>">
+								<?php echo anchor("contest","Contest"); ?>
 							</li>
-							<li>
-								<?php echo anchor("video","Browse Videos"); ?>
-							</li>
-							<li>
-								<a href="<?php echo base_url(); ?>">Contact Us</a>
+                            <li class="dropdown <?php if($uri == "video"){ echo "active"; } ?>">
+                                <?php echo anchor("video",'Browse Videos <span class="caret"></span>', 'class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"'); ?>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <?php echo anchor("#", "New videos"); ?>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <?php echo anchor("#", "Popular videos"); ?>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <?php echo anchor("#", "Videos in Contest"); ?>
+                                    </li>
+                                </ul>
+                            </li>
+							<li class="<?php if($uri == "contact"){ echo "active"; } ?>">
+                                <?php echo anchor("contact", "Contact Us"); ?>
 							</li>
 					    </ul>
 				    </div>

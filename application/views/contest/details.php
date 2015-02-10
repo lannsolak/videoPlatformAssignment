@@ -4,7 +4,7 @@
         $closeenrolling = null; $openvoting = null; $result = null;
         if($detailsContest->num_rows() > 0) {
             foreach ($detailsContest->result() as $dc) {
-                $id = $dc->id;
+                $id = $dc->cid;
                 $title = $dc->title;
                 $describe = $dc->description;
                 $prize = $dc->prize;
@@ -26,6 +26,33 @@
             $isDisable = 'disabled';
         }
     ?>
+    <?php if($this->session->userdata("success_enroll")) { ?>
+    <div class="alert alert-success alert-dismissible fade in" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+      <?php 
+        echo $this->session->userdata("success_enroll"); 
+        $this->session->unset_userdata("success_enroll");
+      ?>
+    </div>
+    <?php } ?>
+    <?php if($this->session->userdata("image_error")) { ?>
+    <div class="alert alert-warning alert-dismissible fade in" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+      <?php 
+        echo $this->session->userdata("image_error"); 
+        $this->session->unset_userdata("image_error");
+      ?>
+    </div>
+    <?php } ?>
+    <?php if($this->session->userdata("video_error")) { ?>
+    <div class="alert alert-danger alert-dismissible fade in" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+      <?php 
+        echo $this->session->userdata("video_error"); 
+        $this->session->unset_userdata("video_error");
+      ?>
+    </div>
+    <?php } ?>
     <div class="col-sm-6">
         <h3 class="h3">
             <button class="btn btn-xs btn-success pull-right" <?php echo $isDisable; ?>  data-toggle="modal" data-target="#enrollModel">Enroll now</button>
@@ -106,8 +133,8 @@
 <!-- model enroll contest -->
 <div class="modal fade" id="enrollModel" tabindex="-1" role="dialog" aria-lablledby="enrollModelLable" aria-hidden="true">
     <div class="modal-dialog">
-        <?php $hidden = array("userId" => $this->session->userdata("userId"), "contestId" => $id); ?>
-        <?php echo form_open_multipart('contest/enrollContest', array('class'=>'form-horizontal'), $hidden); ?>
+        <!-- open form multipart -->
+        <?php echo form_open_multipart('contest/enrollContest'); ?>
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-labal="Close">
@@ -115,7 +142,9 @@
                 </button>
                 <h4>ENROLL NOW</h4>
             </div>
-            <div class="modal-body">
+            <div class="modal-body form-horizontal">
+                <?php echo form_hidden('contestId', $id); ?>
+                <?php echo form_hidden('userId', $this->session->userdata("userId")); ?>
                 <div class="form-group">
                     <label for="user" class="col-sm-3 control-label">Your Name  <span class="required">*</span>: </label>
                     <div class="col-sm-8">
@@ -210,7 +239,7 @@
                                 'value'       => '',
                                 'class'       => 'form-control thumb-file',
                             );
-                            echo form_upload($uploadInputAttribute);
+                            echo form_upload($thumpInputAttribute);
                            ?>
                         </div>
                     </div>

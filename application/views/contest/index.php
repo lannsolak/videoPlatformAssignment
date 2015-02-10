@@ -56,7 +56,7 @@
                                             <td><?php echo $sc->title; ?></td>
                                             <td><?php echo date ( "d M Y", strtotime($sc->enddate)); ?></td>
                                             <td><?php echo date ( "d M Y", strtotime($sc->resultdate)); ?></td>
-                                            <td><?php $id = $sc->id; echo anchor("/contest/details/$id", "Detail"); ?></td>
+                                            <td><?php $id = $sc->cid; echo anchor("/contest/details/$id", "Detail"); ?></td>
                                         </tr>
                             <?php
                                     }

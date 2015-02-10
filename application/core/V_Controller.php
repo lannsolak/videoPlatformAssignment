@@ -6,52 +6,48 @@ class V_Controller extends CI_Controller {
         parent::__construct();
     }
 
-    // public function uploadVideo(){
-    // 	echo "hello world !!!";
-    //     // var_dump($this->execute_upload_video("videofiles"));
-    //     var_dump($this->execute_upload_images("thumbfile"));
-    //     die();
-    // }
-    // public function execute_upload_video($videos)
-    // {
-    //     $config['upload_path'] = './uploaded/videos/';
-    //     $config['allowed_types'] = 'mp4|flv|wmv|';
-    //     $config['max_size'] = '3100';
+    function do_upload(){
+        $config['upload_path'] = './uploaded/';
+        $config['allowed_types'] = 'gif|jpg|png|mp4|3gp|flv';
+        $config['max_size'] = '10000';
+        $config['max_width']  = '1024';
+        $config['max_height']  = '768';
 
-    //     $this->load->library('upload', $config);
+        $video["error"] = null;
 
-    //     if ( ! $this->upload->do_upload($videos))
-    //     {
-    //         $error = array('error' => $this->upload->display_errors());
-    //         return $error;
-    //     }
-    //     else
-    //     {
-    //         $data = array('upload_data' => $this->upload->data());
-    //         return $data;
-    //     }
-    // }
-    // public function execute_upload_images($images)
-    // {
-    //     $config['upload_path'] = './uploaded/images/';
-    //     $config['allowed_types'] = 'gif|jpg|png';
-    //     $config['max_size'] = '100';
-    //     $config['max_width']  = '1024';
-    //     $config['max_height']  = '768';
+        $this->load->library('upload', $config);
 
-    //     $this->load->library('upload', $config);
+        if ( ! $this->upload->do_upload("videofiles"))
+        {
+            $video["error"] = $this->upload->display_errors();
+        }
+        else
+        {
+            $video["data"] = $this->upload->data();
+        }
 
-    //     if ( ! $this->upload->do_upload($images))
-    //     {
-    //         $error = array('error' => $this->upload->display_errors());
-    //         return $error;
-    //     }
-    //     else
-    //     {
-    //         $data = array('upload_data' => $this->upload->data());
-    //         return $data;
-    //     }
-    // }
+        $images = array();
+
+        if($video["error"] == null){
+            $images = $this->uploadimages();
+        }
+        return array("video" => $video, "images" => $images);        
+    }
+
+    public function uploadimages(){
+
+        $data["error"] = null;
+
+        if ( ! $this->upload->do_upload("thumbfile"))
+        {
+            $data["error"] = $this->upload->display_errors();
+        }
+        else
+        {
+            $data["data"] = $this->upload->data();
+        }
+        return $data;
+    }
 }
 
 /* End of file V_Controller.php */

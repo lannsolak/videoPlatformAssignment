@@ -21,9 +21,8 @@ class Mod_contest extends V_Model {
 					  ->from("contests")
 					  ->join("schedules", 'contests.schedules_id = schedules.id')
 					  ->order_by("contests.id", "DESC")
-					  // ->where("schedules.isActive", 1)
-					  ->where("contests.status !=", "draft")
 					  ->where("contests.status !=", "close")
+					  ->where("contests.status !=", "draft")
 					  ->get();
 		return  $query;
 	}
@@ -62,5 +61,8 @@ class Mod_contest extends V_Model {
 		if($query->num_rows() <= 0){ $query = null; } else { $query = $query->result(); }
 		return $query;
 	}
-
+	public function insertEnrollData($insertEnroll = array()){
+    	$this->db->insert('enrollcontest', $insertEnroll);
+    	return $this->db->insert_id();
+    }
 }

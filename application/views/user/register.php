@@ -5,12 +5,12 @@
 			<div class="form-group">
 				<label for="name">Name:</label>
 				<span class="error-sms">* <?php echo form_error('name'); ?></span>
-				<input type="text" class="form-control" name="name" placeholder="Enter Name">
+				<input type="text" class="form-control" name="name" value="<?php echo set_value('name'); ?>" placeholder="Enter Name">
 			</div>
 			<div class="form-group">
 				<label for="email">Email:</label>
 				<span class="error-sms">* <?php echo form_error('email'); ?></span>
-				<input type="email" class="form-control" name="email" placeholder="Enter Email">
+				<input type="email" class="form-control" name="email" value="<?php echo set_value('email'); ?>" placeholder="Enter Email">
 			</div>
 			<div class="form-group">
 				<label for="password">Password:</label>
@@ -37,29 +37,29 @@
 			<div class="form-group">
 				<label for="country">Country:</label>
 				<span class="error-sms">* <?php echo form_error('country'); ?></span>
-				<input type="text" class="form-control" name="coulontry" placeholder="Country">
+				<input type="text" class="form-control" name="country" value="<?php echo set_value('country'); ?>" placeholder="Country">
 			</div>
 			<div class="form-group">
 				<label for="city">City:</label>
 				<span class="error-sms">* <?php echo form_error('city'); ?></span>
-				<input type="text" class="form-control" name="city" placeholder="City">
+				<input type="text" class="form-control" name="city" value="<?php echo set_value('city'); ?>" placeholder="City">
 			</div>
 			<div class="form-group">
 				<label for="zipCode">Zip Code:</label>
-				<input type="text" class="form-control" name="zip_code" placeholder="Zip Code">
+				<input type="text" class="form-control" name="zip_code" value="<?php echo set_value('zip_code'); ?>" placeholder="Zip Code">
 			</div>
 			<div class="form-group">
 				<label for="phoneNumber">Phone Number:</label>
 				<span class="error-sms">* <?php echo form_error('phone_number'); ?></span>
-				<input type="text" class="form-control" name="phone_number" placeholder="Phone Number">
+				<input type="text" class="form-control" name="phone_number" value="<?php echo set_value('phone_number'); ?>" placeholder="Phone Number">
 			</div>
 			<div class="form-group">
 				<label for="skill">Skill:</label>
-				<input type="text" class="form-control" name="skill" placeholder="Skill">
+				<input type="text" class="form-control" name="skill" value="<?php echo set_value('skill'); ?>" placeholder="Skill">
 			</div>
 			<div class="form-group">
 				<label for="interest">Interest:</label>
-				<input type="text" class="form-control" name="interest" placeholder="Interest">
+				<input type="text" class="form-control" name="interest" value="<?php echo set_value('interest'); ?>" placeholder="Interest">
 			</div>
 			<p><b>Note:</b> <span style="color: red;">* is required!</span></p>
 

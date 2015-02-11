@@ -100,3 +100,31 @@ footer {
     width: 150px;
 }
 
+
+/*.vdolist{
+    height: 50px; 
+    background-color: #c38021;
+    border-color: #c38021;
+    color: #fff;"
+}*/
+
+#btn-user{
+    background-color: #C38021;
+    float: right;
+
+    border: 1px solid #fff;
+}
+
+
+.panel-title{
+    margin-bottom: 20px;
+    color: #C38021;
+    font-size: 20px;
+}
+
+
+
+
+
+
+

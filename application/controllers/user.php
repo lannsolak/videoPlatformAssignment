@@ -76,16 +76,33 @@ class User extends V_Controller {
 		$this->form_validation->set_rules('password', 'Password', 'required|xss_clean');
 
 		if($this->form_validation->run() == true){
+
 			$this->load->model('user_model');
 			$user_found = $this->user_model->check_login($this->input->post('email'), $this->input->post('password'));
+			
 			if($user_found > 0){
-				redirect('contest/index');
+				$this->session->set_userdata('email', $this->input->post('email'));
+				$this->session->set_userdata('name', $this->user_model->user_name);
+				$this->session->set_userdata('id', $this->user_model->user_id);
+				$this->session->set_userdata('role_id', $this->user_model->user_role);
+
+				if($this->user_model->user_role == 2){
+					redirect('contest/index');
+				}
+				redirect('dashboard/index');
+				
 			} else {
 				echo '<script type="text/javascript">alert("Email or Password does not match!!!");</script>';
 			}
 		}
 
 		$this->show_login();
+	}
+
+	public function logout()
+	{
+		$this->session->sess_destroy();
+		redirect('home/home');
 	}
 
 }

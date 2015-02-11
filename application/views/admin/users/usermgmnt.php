@@ -1,2 +1,0 @@
-<!-- list users -->
-usermgmnt.php

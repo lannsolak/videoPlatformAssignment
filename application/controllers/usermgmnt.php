@@ -32,21 +32,53 @@ class Usermgmnt extends V_Controller {
     }
     // create new users or creator
     public function useradd(){
-        $this->load->view('dashboard');
+        if($this->input->post("createUserSubmit")){
+            $insert["name"] = $this->input->post("name");
+            $insert["email"] = $this->input->post("email");
+            $insert["password"] = $this->input->post("password");
+            $insert["gender"] = $this->input->post("gender");
+            $insert["phone"] = $this->input->post("phone");
+            $insert["country"] = $this->input->post("country");
+            $insert["city"] = $this->input->post("city");
+            $insert["zipcode"] = $this->input->post("zipcode");
+            $insert["skill"] = $this->input->post("skill");
+            $insert["interest"] = $this->input->post("interest");
+            $insert["role_id"] = 2;
+            $data["inserted"] = $this->mod_usermgmnt->insertUserData($insert);
+        }
+        $data["title"] = "add new user";
+        $this->load->view('dashboard', $data);
     }
-    // get a row of your for edit and view
-    public function findSingleUsers(){
+    // create new users or creator
+    public function useredit($id){
+        if($this->input->post("editUserSubmit")){
+            $update["name"] = $this->input->post("name");
+            $update["email"] = $this->input->post("email");
+            $update["gender"] = $this->input->post("gender");
+            $update["phone"] = $this->input->post("phone");
+            $update["country"] = $this->input->post("country");
+            $update["city"] = $this->input->post("city");
+            $update["zipcode"] = $this->input->post("zipcode");
+            $update["skill"] = $this->input->post("skill");
+            $update["interest"] = $this->input->post("interest");
+            $data["updated"] = $this->mod_usermgmnt->updateUserData($id, $update);
+        }
+        $data["userToEdit"] = $this->mod_usermgmnt->userToEdit($id);
+        $this->load->view('dashboard',$data);
+    }
+    // // get a row of your for edit and view
+    // public function findSingleUsers(){
 
-    }
-    // submiting the update user information
-    public function updateUserInfo(){
+    // }
+    // // submiting the update user information
+    // public function updateUserInfo(){
 
-    }
+    // }
     // public function getUserList
     public function getUserList(){
         $config['base_url'] = site_url("usermgmnt/index");
         $config['total_rows'] = $this->mod_usermgmnt->count_all();
-        $config['per_page'] = 2;
+        $config['per_page'] = 10;
         $config["uri_segment"] = 3;
         $config['num_tag_open'] = '<li>';
         $config['num_tag_close'] = '</li>';

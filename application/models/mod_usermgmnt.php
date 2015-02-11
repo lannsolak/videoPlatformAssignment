@@ -39,4 +39,30 @@ class Mod_usermgmnt extends V_Model {
             return "The user updated to member successfully !!!";
         }
     }
+    // get user edit status
+    public function userToEdit($id){
+        $query = $this->db->select("*")
+                 ->from("users")
+                 ->where('id', $id)
+                 ->get();
+        return $query;
+    }
+
+    // update user data
+    public function updateUserData($id, $update){
+        $this->db->where('id', $id);
+        $this->db->update('users', $update);
+        $rowAffected = $this->db->affected_rows();
+        if($rowAffected > 0){
+            return "The user updated successfully !!!";
+        }
+    }
+    // insert user data
+    public function insertUserData($insert){
+        $this->db->insert('users', $insert); 
+        $insertid = $this->db->insert_id();
+        if($insertid > 0){
+            return "The user created successfully !!!";
+        }
+    }
 }

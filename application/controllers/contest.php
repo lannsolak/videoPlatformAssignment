@@ -42,35 +42,45 @@ class Contest extends V_Controller {
     public function enrollContest(){
         if($this->input->post('btnSubmitEnroll')){
             if($this->input->post('new_upload')){
-                // var_dump($this->input->post()); die();
-                // $this->uploadVideo();
-                // $this->do_upload();
-            }
-            // var_dump($this->input->post('new_upload')); die();
-        }else{
+                $file_upload = $this->do_upload();
+                if($file_upload['video']['error'] != null){
+                    $this->session->set_userdata("video_error", $file_upload['video']['error']);
+                } else {
+                    if($file_upload['images']['error'] != null) {
+                        $this->session->set_userdata("image_error", $file_upload['images']['error']);
+                        $thumbnail = null;
+                    } else {
+                        $thumbnail = $file_upload['images']['data']['file_name'];
+                    }
 
+                    $insert["title"] = $this->input->post("videotitle");
+                    $insert["description"] = $this->input->post("videodescription");
+                    $insert["size"] = $file_upload['video']['data']['file_size'];
+                    $insert["extension"] = $file_upload['video']['data']['file_ext'];
+                    $insert["path"] = '/uploaded/'.$file_upload['video']['data']['file_name'];
+                    $insert["thumbnail"] = $thumbnail;
+                    $insert["upload_date"] = date("Y-m-d");
+                    $insert["user_id"] = $this->input->post("userId");
+                    $vid = V_Model::insertVideo($insert);             
+                }
+            } else {
+                $vid = $this->input->post("videoId");
+            } 
+
+            $insertEnroll['contests_id'] = $this->input->post("contestId");
+            $insertEnroll['videos_id'] = $vid;
+            $insertEnroll['users_id'] = $this->input->post("userId");
+            $insertEnroll['comments'] = $this->input->post("comment");
+            $insertEnroll['date'] = date("Y-m-d");
+
+            $ecId = $this->mod_contest->insertEnrollData($insertEnroll);
+
+            if($ecId > 0) $this->session->set_userdata("success_enroll", "Your request to enroll contest was submited, waiting approving from administrator.");
         }
+
+        redirect('contest/details/'.$this->input->post("contestId"));
     }
-    // function do_upload(){
-    //     $config['upload_path'] = './uploaded/images/';
-    //     $config['allowed_types'] = 'gif|jpg|png';
-    //     $config['max_size'] = '100';
-    //     $config['max_width']  = '1024';
-    //     $config['max_height']  = '768';
 
-    //     $this->load->library('upload', $config);
-
-    //     if ( ! $this->upload->do_upload("thumbfile"))
-    //     {
-    //         $error = array('error' => $this->upload->display_errors());
-    //         var_dump($error);
-    //     }
-    //     else
-    //     {
-    //         $data = array('upload_data' => $this->upload->data());
-    //         var_dump($data);
-    //     }
-    // }
     // return the new contest
     public function getNewContest() {
     	$new = $this->mod_contest->queryNewContest();
@@ -105,6 +115,48 @@ class Contest extends V_Controller {
             return $winner->result();
         }else{
            return null;
+        }
+    }
+    // function upload video
+    public function execute_upload_video($videos)
+    {
+        $config['upload_path'] = './uploaded/videos/';
+        $config['allowed_types'] = 'mp4|flv|wmv|';
+        $config['max_size'] = '3100';
+
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload($videos))
+        {
+            $error = array('error' => $this->upload->display_errors());
+            return $error;
+        }
+        else
+        {
+            $data = array('upload_data' => $this->upload->data());
+            return $data;
+        }
+    }
+    // function upload image
+    public function execute_upload_images($images)
+    {
+        $config['upload_path'] = './uploaded/images/';
+        $config['allowed_types'] = 'gif|jpg|png';
+        $config['max_size'] = '100';
+        $config['max_width']  = '1024';
+        $config['max_height']  = '768';
+
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload($images))
+        {
+            $error = array('error' => $this->upload->display_errors());
+            return $error;
+        }
+        else
+        {
+            $data = array('upload_data' => $this->upload->data());
+            return $data;
         }
     }
 }

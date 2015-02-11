@@ -18,7 +18,7 @@
                         ?>
                         <div class="col-sm-6 col-lg-6 col-md-6">
 	                    <div class="thumbnail">
-                            <?php echo anchor("video/play/".$newVideo->id, img("uploaded/images/".$newVideo->thumbnail)); ?>
+                            <?php echo anchor("video/play/".$newVideo->id, img("uploaded/".$newVideo->thumbnail)); ?>
                             <h4><?php echo anchor("video/play/".$newVideo->id, $newVideo->title); ?></h4>	                        
 	                        <div class="ratings">
 	                            <p class="pull-right"><?php echo $newVideo->views; ?> views</p>

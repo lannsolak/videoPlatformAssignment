@@ -63,6 +63,28 @@
 					    </ul>
 				    </div>
                 </div>
+                <div class="col-sm-2" style="padding-top: 15px;">
+					<?php 
+						if($this->session->userdata('id')){
+							echo anchor(
+								'#', 
+								'Welcome: ' . $this->session->userdata('name') . nbs().'<span class="caret" ></span>',
+								'class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="color: #fff;"'
+								);
+					?>
+							<ul class="dropdown-menu" role="menu">
+					            <li><a href="#">View Profile</a></li>
+					            <li class="divider"></li>
+					            <li><?php echo anchor("user/logout", "Logout"); ?></li>
+				          	</ul>
+				     <?php     	
+						}else{
+							echo anchor("user/show_register", "Register", 'class="btn btn-primary btn-sm"');
+							echo nbs(3);
+							echo anchor("user/show_login", "Login", 'class="btn btn-primary btn-sm"'); 
+						}
+					?>
+			  	</div>
                 <div class="col-sm-2" style="padding-top: 8px;">
                     <div class="input-group row">
                         <input class="form-control" type="text">
@@ -73,55 +95,7 @@
                         </span>
                     </div>
                 </div>
-                <div class="col-sm-2" style="padding-top: 8px;">
-                	<!-- Small modal -->
-					<button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Create an account</button>
-					<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-					  	<div class="modal-dialog">
-						    <div class="modal-content">
-						      <div class="modal-header">
-						        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						        <h4 class="modal-title" id="exampleModalLabel">
-								    <div class="my-user">
-										<?php echo anchor("user/show_register", "Register") ?>
-										|
-										<?php echo anchor("user/show_login", "Login") ?>
-									</div>
-								</h4>
-						      </div>
-						      	<div class="modal-body">
-						        	<form>
-						          		<div class="form-group">
-								            <label for="recipient-name" class="control-label">Recipient:</label>
-								            <input type="text" class="form-control" id="recipient-name">
-							          	</div>
-							          	<div class="form-group">
-								            <label for="message-text" class="control-label">Message:</label>
-								            <textarea class="form-control" id="message-text"></textarea>
-							          	</div>
-						        	</form>
-						      	</div>
-						      	<div class="modal-footer">
-							        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-							        <button type="button" class="btn btn-primary">Send message</button>
-						      	</div>
-						    </div>
-					  	</div>
-					</div>
-			  	</div>
             </div><!-- /.navbar-collapse -->
         </div>
 	</nav>
-
-	<script type="text/javascript">
-		$('#exampleModal').on('show.bs.modal', function (event) {
-		  var button = $(event.relatedTarget) // Button that triggered the modal
-		  var recipient = button.data('whatever') // Extract info from data-* attributes
-		  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-		  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-		  var modal = $(this)
-		  modal.find('.modal-title').text('New message to ' + recipient)
-		  modal.find('.modal-body input').val(recipient)
-		})
-	</script>
 

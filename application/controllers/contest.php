@@ -61,11 +61,11 @@ class Contest extends V_Controller {
                     $insert["thumbnail"] = $thumbnail;
                     $insert["upload_date"] = date("Y-m-d");
                     $insert["user_id"] = $this->input->post("userId");
-                    $vid = V_Model::insertVideo($insert);             
+                    $vid = V_Model::insertVideo($insert);
                 }
             } else {
                 $vid = $this->input->post("videoId");
-            } 
+            }
 
             $insertEnroll['contests_id'] = $this->input->post("contestId");
             $insertEnroll['videos_id'] = $vid;

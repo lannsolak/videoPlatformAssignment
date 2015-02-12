@@ -1,42 +1,31 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-12">         
 		<?php
-        if ($allcontestvdos->num_rows() > 0) {
-            foreach ($allcontestvdos->result() as $row) {				
-		?>                	
-             <div class="col-sm-3 col-lg-3 col-md-3">
-                <div class="row">	
-	              <div class="thumbnail">
-                    <video width="282" height="160" controls>
-                    <a target="_blank" href="<?php echo site_url('video/playVideo').'/'.$row->id; ?>">
-                      <img src="<?php echo site_url().'videos/Thumbnails/' . $row->thumbnail; ?>" />
-                    </a>
-                    <div class="caption">
-                        <h4><a href="#"><?php echo $row->title; ?></a>
-                        </h4>
-                        <p><?php echo $row->description; ?></p>
-                    </div>
-                    <div class="ratings">
-                        <p class="pull-right"><?php echo $row->views; ?> reviews</p>
-                        <p>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                        </p>
-                    </div>
-	              </div>
-               </div>
-			</div>    
-			<?php
-                  }	
+            if ($allcontestvdos->num_rows() > 0) {
+                foreach ($allcontestvdos->result() as $row) {
+		?>
+                <div class="col-sm-2">
+    	            <div class="thumbnail">
+                        <?php echo anchor("video/playVideo/".$row->id, img("uploaded/".$row->thumbnail)); ?>
+                        <div class="caption">
+                            <h4><?php echo anchor("video/playVideo/".$row->id, $row->title); ?></h4>
+                        </div>
+                        <div class="ratings">
+                            <p class="pull-right"><?php echo $row->views; ?> views</p>
+                            <p><?php echo $row->likes; ?> likes</p>
+                        </div>
+    	            </div>
+    			</div>
+		<?php
+                }
 			}else{
 					echo "No record found!";
 			}
-            ?>
-        </div>
+        ?>
     </div>
-   <ul class="pagination"><li class="active"></li><li><?php echo $pagination; ?></li></ul>
+    <nav>
+        <ul class="pagination">
+            <?php echo $pagination; ?>
+        </ul>
+    </nav>
 </div>

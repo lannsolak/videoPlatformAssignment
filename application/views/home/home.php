@@ -11,7 +11,7 @@
             <div class="row">
             <!-- all video -->
                 <div class="col-sm-4 col-lg-4 col-md-4">
-                    <h3 class="h3 h3title h3title"><?php echo anchor("video/newvideo", "Current Upload"); ?></h3>
+                    <h3 class="h3 h3title"><?php echo anchor("video/newvideo", "Current Upload"); ?></h3>
                     <hr />
                     <div class="row">
                         <?php
@@ -19,8 +19,8 @@
                         ?>
                         <div class="col-sm-6 col-lg-6 col-md-6">
 	                    <div class="thumbnail">
-                            <?php echo anchor("video/play/".$newVideo->id, img("uploaded/".$newVideo->thumbnail)); ?>
-                            <h4 class="vtitle-home"><?php echo anchor("video/play/".$newVideo->id, $newVideo->title); ?></h4>
+                            <?php echo anchor("video/playVideo/".$newVideo->id, img("uploaded/".$newVideo->thumbnail)); ?>
+                            <h4 class="vtitle-home"><?php echo anchor("video/playVideo/".$newVideo->id, $newVideo->title); ?></h4>
 	                        <div class="ratings">
 	                            <p class="pull-right"><?php echo $newVideo->views; ?> views</p>
                                 <p><?php echo $newVideo->likes; ?> likes</p>
@@ -43,8 +43,8 @@
                         ?>
                         <div class="col-sm-6 col-lg-6 col-md-6">
     	                    <div class="thumbnail">
-                                <?php echo anchor("video/play/".$popularVideo->id, img("uploaded/".$popularVideo->thumbnail)); ?>
-    	                        <h4 class="vtitle-home"><?php echo anchor("video/play/".$popularVideo->id, $popularVideo->title); ?></h4>
+                                <?php echo anchor("video/playVideo/".$popularVideo->id, img("uploaded/".$popularVideo->thumbnail)); ?>
+    	                        <h4 class="vtitle-home"><?php echo anchor("video/playVideo/".$popularVideo->id, $popularVideo->title); ?></h4>
     	                        <div class="ratings">
     	                            <p class="pull-right"><?php echo $popularVideo->views; ?> views</p>
                                     <p><?php echo $popularVideo->likes; ?> likes</p>
@@ -67,8 +67,8 @@
                         ?>
                         <div class="col-sm-6 col-lg-6 col-md-6">
                             <div class="thumbnail">
-                                <?php echo anchor("video/play/".$contestVideo->id, img("uploaded/".$contestVideo->thumbnail)); ?>
-                                <h4 class="vtitle-home"><?php echo anchor("video/play/".$contestVideo->id, $contestVideo->title); ?></h4>
+                                <?php echo anchor("video/playVideo/".$contestVideo->id, img("uploaded/".$contestVideo->thumbnail)); ?>
+                                <h4 class="vtitle-home"><?php echo anchor("video/playVideo/".$contestVideo->id, $contestVideo->title); ?></h4>
                                 <div class="ratings">
                                     <p class="pull-right"><?php echo $contestVideo->views; ?> views</p>
                                     <p><?php echo $contestVideo->likes; ?> likes</p>

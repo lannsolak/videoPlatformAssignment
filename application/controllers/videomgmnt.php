@@ -54,7 +54,7 @@ class Videomgmnt extends V_Controller {
 
     // detete video
     public function videodelete($id) {
-        $data["deleted"] = $this->mod_videomgmnt->deletevideo($id);
+        $data["deleted"] = $this->mod_videomgmnt->deleteVideo($id);
         if($data["deleted"]){
             $this->session->set_userdata("success", $data["deleted"]);
         }else{
@@ -65,7 +65,7 @@ class Videomgmnt extends V_Controller {
 
     // update video
     public function videostatus($id) {
-        $data["updated"] = $this->mod_videomgmnt->updateStatusvideo($id);
+        $data["updated"] = $this->mod_videomgmnt->updateStatusVideo($id);
         if($data["updated"]){
             $this->session->set_userdata("success", $data["updated"]);
         }else{

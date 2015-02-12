@@ -6,8 +6,9 @@ class Mod_home extends V_Model {
         $query = $this->db->select("*")
                 ->from("videos")
                 ->limit(4)
+                ->where('status', 'New')
                 ->order_by("id","DESC");
-        $result = $query->get();      
+        $result = $query->get();
         return $result;
     }
     // for query popular video

@@ -1,4 +1,4 @@
-<?php 
+<?php
   $name = null;
   $email = null;
   $gender = null;
@@ -46,36 +46,36 @@
     <div class="form-group">
       <label for="gender" class="col-sm-2 control-label">Gender : </label>
       <div class="col-sm-9">
-        <?php 
+        <?php
           $option =  array(''=>'-- select --', 'm'=>'Male', 'f'=>'Female');
-          echo form_dropdown("gender",$option,$gender,'class="form-control"'); 
+          echo form_dropdown("gender",$option,$gender,'class="form-control"');
         ?>
       </div>
-    </div>    
+    </div>
     <div class="form-group">
       <label for="phone" class="col-sm-2 control-label">Phone : </label>
       <div class="col-sm-9">
         <?php echo form_input("phone", $phone , 'class="form-control" placeholder="xxxxxxxxxx"'); ?>
       </div>
-    </div>    
+    </div>
     <div class="form-group">
       <label for="contry" class="col-sm-2 control-label">Country : </label>
       <div class="col-sm-9">
         <?php echo form_input("country", $country, 'class="form-control" placeholder="country"'); ?>
       </div>
-    </div>    
+    </div>
     <div class="form-group">
       <label for="city" class="col-sm-2 control-label">City : </label>
       <div class="col-sm-9">
         <?php echo form_input("city", $city, 'class="form-control" placeholder="city"'); ?>
       </div>
-    </div>   
+    </div>
     <div class="form-group">
       <label for="zipcode" class="col-sm-2 control-label">Zipcode : </label>
       <div class="col-sm-9">
         <?php echo form_input("zipcode", $zipcode, 'class="form-control" placeholder="zipcode"'); ?>
       </div>
-    </div>   
+    </div>
     <div class="form-group">
       <label for="skill" class="col-sm-2 control-label">Skill : </label>
       <div class="col-sm-9">
@@ -87,10 +87,10 @@
             'rows' => "3",
             'value' => $skill,
           );
-          echo form_textarea($skillAttribute); 
+          echo form_textarea($skillAttribute);
         ?>
       </div>
-    </div>   
+    </div>
     <div class="form-group">
       <label for="interest" class="col-sm-2 control-label">Interest : </label>
       <div class="col-sm-9">
@@ -102,15 +102,16 @@
             'rows' => "3",
             'value' => $interest,
           );
-          echo form_textarea($interestAttribute); 
+          echo form_textarea($interestAttribute);
         ?>
       </div>
     </div>
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
         <?php echo form_submit('editUserSubmit','Save Change','class="btn btn-primary"'); ?>
-        <?php echo anchor("usermgmnt/", "Cancel", 'class="btn btn-default"'); ?> 
+        <?php echo anchor("usermgmnt/", "Cancel", 'class="btn btn-default"'); ?>
       </div>
     </div>
   <?php echo form_close(); ?>
+  <div>&nbsp;</div>
 </div>

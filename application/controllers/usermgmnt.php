@@ -66,14 +66,7 @@ class Usermgmnt extends V_Controller {
         $data["userToEdit"] = $this->mod_usermgmnt->userToEdit($id);
         $this->load->view('dashboard',$data);
     }
-    // // get a row of your for edit and view
-    // public function findSingleUsers(){
 
-    // }
-    // // submiting the update user information
-    // public function updateUserInfo(){
-
-    // }
     // public function getUserList
     public function getUserList(){
         $config['base_url'] = site_url("usermgmnt/index");
@@ -90,6 +83,12 @@ class Usermgmnt extends V_Controller {
         $config['next_link'] = 'next';
         $config['next_tag_open'] = '<li>';
         $config['next_tag_close'] = '</li>';
+        $config['last_link'] = '&gt;&gt;';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+        $config['first_link'] = '&lt;&lt;';
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
         $this->pagination->initialize($config);
 

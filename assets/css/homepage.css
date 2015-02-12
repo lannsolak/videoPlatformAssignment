@@ -157,3 +157,10 @@ footer {
 .required {
     color: red;
 }
+.vtitle-home{
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.h3title a{
+    color: #C38021;
+}

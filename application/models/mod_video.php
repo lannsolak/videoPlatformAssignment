@@ -51,4 +51,17 @@ class Mod_video extends V_Model {
         return $result;
     }
 	
+	//select specify vdo for play
+	public function selectVideo(){
+		$this->db->select('*')
+				 ->from('videos')
+				 ->where('id', $this->uri->segment(3));
+				 
+		return $this->db->get();
+	}
+		
+	//Insert video
+	public function insertRating(){
+        return $this->db->insert('votes', $data);
+	}
 }

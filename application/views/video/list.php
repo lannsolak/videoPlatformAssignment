@@ -12,20 +12,19 @@
             foreach ($newVideo->result() as $row) {
 				
 				?>
-                	
                   <div class="col-sm-3 col-lg-3 col-md-3">
                     <div class="row">	
 	                    <div class="thumbnail">
-            <video width="282" height="160" controls>
-              <source src="<?php echo site_url().'videos/' . $row->thumbnail; ?>" type="video/mp4">
-            </video>
+                        	<a target="_blank" href="<?php echo('video/playVideo').'/'.$row->id; ?>">
+                        		<img src="<?php echo site_url().'videos/Thumbnails/' . $row->thumbnail; ?>" />
+                            </a>
 	                        <div class="caption">
 	                            <h4><a href="#"><?php echo $row->title; ?></a>
 	                            </h4>
 	                            <p><?php echo $row->description; ?></p>
 	                        </div>
 	                        <div class="ratings">
-	                            <p class="pull-right">15 reviews</p>
+	                            <p class="pull-right"></p><?php echo $row->views; ?> reviews</p>
 	                            <p>
 	                                <span class="glyphicon glyphicon-star"></span>
 	                                <span class="glyphicon glyphicon-star"></span>
@@ -36,7 +35,7 @@
 	                        </div>
 	                    </div>
                     </div>
-				</div>    
+				</div>   
 			<?php
                   }
                     }else{
@@ -69,16 +68,16 @@
                   <div class="col-sm-3 col-lg-3 col-md-3">
                     <div class="row">	
 	                    <div class="thumbnail">
-            <video width="282" height="160" controls>
-              <source src="<?php echo site_url().'videos/' . $row->thumbnail; ?>" type="video/mp4">
-            </video>
+                        	<a target="_blank" href="<?php echo('video/playVideo').'/'.$row->id; ?>">
+                                <img src="<?php echo site_url().'videos/Thumbnails/' . $row->thumbnail; ?>" />
+                            </a>
 	                        <div class="caption">
 	                            <h4><a href="#"><?php echo $row->title; ?></a>
 	                            </h4>
 	                            <p><?php echo $row->description; ?></p>
 	                        </div>
 	                        <div class="ratings">
-	                            <p class="pull-right">15 reviews</p>
+	                            <p class="pull-right"><?php echo $row->views; ?> reviews</p>
 	                            <p>
 	                                <span class="glyphicon glyphicon-star"></span>
 	                                <span class="glyphicon glyphicon-star"></span>
@@ -121,16 +120,16 @@
                   <div class="col-sm-3 col-lg-3 col-md-3">
                     <div class="row">	
 	                    <div class="thumbnail">
-            <video width="282" height="160" controls>
-              <source src="<?php echo site_url().'videos/' . $row->thumbnail; ?>" type="video/mp4">
-            </video>
+                        	<a target="_blank" href="<?php echo('video/playVideo').'/'.$row->id; ?>">
+                                <img src="<?php echo site_url().'videos/Thumbnails/' . $row->thumbnail; ?>" />
+                            </a>
 	                        <div class="caption">
 	                            <h4><a href="#"><?php echo $row->title; ?></a>
 	                            </h4>
 	                            <p><?php echo $row->description; ?></p>
 	                        </div>
 	                        <div class="ratings">
-	                            <p class="pull-right">15 reviews</p>
+	                            <p class="pull-right"><?php echo $row->views; ?> reviews</p>
 	                            <p>
 	                                <span class="glyphicon glyphicon-star"></span>
 	                                <span class="glyphicon glyphicon-star"></span>

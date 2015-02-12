@@ -56,10 +56,10 @@ class Video extends V_Controller {
 	
 	//all popular vdos
     public function popularvideo(){
-        $config['base_url'] = site_url('video/contestvideo');
+        $config['base_url'] = site_url('video/popularvideo');
         $config['total_rows'] = $this->db->count_all('videos');
         
-        $config['per_page'] = 1;
+        $config['per_page'] = 2;
         $config["uri_segment"] = 3;
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
         $this->pagination->initialize($config);
@@ -70,5 +70,33 @@ class Video extends V_Controller {
 
         $this->load->view('index', $data);
     }
+	
+	//Play video
+	public function playVideo(){
+		$data['playvdo'] = $this->mod_video->selectVideo();
+		$data['title'] = 'Play video!';
 		
+		$this->load->view('index', $data);
+		}
+		
+	//Rating video
+	public function rating(){
+		echo "I am here !!!";
+		echo $this->input->post('voter')."Hello";
+		var_dump($this->input->post()); die();
+		$data = array(
+            'date' => $this->input->post('theDate'),
+            'opion' => $this->input->post('opion'),
+            'voter' => $this->input->post('voter')
+        );
+		
+		$data['rate'] = $this->mod_video->insertRating();
+		$data['title'] = 'Rating!';
+		
+		if($data > 0){
+			$this->playVideo();
+		}else{
+			echo "Error submit!";
+			}
+		}	
 }
